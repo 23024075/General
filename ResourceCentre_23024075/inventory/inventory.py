@@ -6,6 +6,18 @@ class Inventory:
         self.cameraList = []
         self.laptopList = []
 
+    def findAsset(self, assetTag):
+        foundAsset = None
+        for c in self.cameraList:
+            currentTag = c.getAssetTag()
+            if currentTag == assetTag:
+                foundAsset = c
+        for c in self.laptopList:
+            currentTag = c.getAssetTag()
+            if currentTag == assetTag:
+                foundAsset = c
+        return foundAsset
+    
     def addCamera(self, assetTag, description, opticalzoom):
         # Check for correct values
         correct = True
