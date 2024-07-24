@@ -97,16 +97,8 @@ class ResourceCenter:
 
                 # TO-DO: Write the code to LOAN a camcorder or chrome book
                 if option == OPTION_CAMERA:
-                    print(self.inventory.getAvailableCamera())
-                    assetTag = input("Enter asset tag >")
-                    duedate = input("Enter due date >")
-
-                    result = self.inventory.loanCamera(assetTag, duedate)
-
-                    if result:
-                        print("Camera",assetTag,"successfully loaned out.")
-                    else:
-                        print("Error loaning camera.")
+                    print(self.inventory.getNotAvailableCamera())
+                   
                 elif option == OPTION_LAPTOP:
                     print(self.inventory.getAvailableLaptop())
                     assetTag = input("Enter asset tag >")
