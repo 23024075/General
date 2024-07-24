@@ -19,7 +19,20 @@ class ResourceCenter:
             if not 1 <= choice <= 5:
                 print("Invalid choice, please enter again.\n")
         return choice
+        
+    def displayHeader(self, message):
+            print("")
+            print("==============================================")
+            print(message)
+            print("==============================================")
 
+    def selectItemType(self):
+        print("\nItem types:")
+        print("1. Digital Camera")
+        print("2. Laptop")
+        option = int(input("Enter option to select item type >"))
+        return option
+    
     def main(self):
         # Refactor (A): Extract constants for choice integers
         CHOICE_ADD = 1
@@ -39,18 +52,12 @@ class ResourceCenter:
 
             if choice == CHOICE_ADD:
                 # Refactor (B): use printHeader(mesage)
-                print("")
-                print("==============================================")
-                print("Add an item")
-                print("==============================================")
+                self.printHeader("Add an item")
                 
                 # Refactor (B): Extract duplicate codes to selectItemType(),
                 # return the option selected.
                 # Advance refactoring: error chekcing in selectItemType().
-                print("\nItem types:")
-                print("1. Digital Camera")
-                print("2. Laptop")
-                option = int(input("Enter option to select item type >"))
+                option = self.selectItemType();
 
                 # TO-DO: Write the code to ADD a camcorder or chrome book.
                 if option == OPTION_CAMERA:
@@ -75,10 +82,7 @@ class ResourceCenter:
             
             elif choice == CHOICE_VIEW:
                 # Refactor (B): Extract duplicate codes to printHeader(message)
-                print("")
-                print("==============================================")
-                print("Display all items")
-                print("==============================================")
+                self.printHeader("display available items")
                 print(self.inventory.getAvailableCamera())
                 print(self.inventory.getAvailableLaptop())
 
@@ -86,16 +90,10 @@ class ResourceCenter:
                 
             elif choice == CHOICE_LOAN:
                 # Refactor (B): use printHeader(mesage)
-                print("")
-                print("==============================================")
-                print("Loan an item")
-                print("==============================================")
+                self.printHeader("loan an item")
                 
                 # Refactor (B): use selectItemType()
-                print("\nItem types:")
-                print("1. Digital Camera")
-                print("2. Laptop")
-                option = int(input("Enter option to select item type >"))
+                option = self.selectItemType();
 
                 # TO-DO: Write the code to LOAN a camcorder or chrome book
                 if option == OPTION_CAMERA:
@@ -125,16 +123,9 @@ class ResourceCenter:
                 
             elif choice == CHOICE_RETURN:
                 # Refactor (B): use printHeader(mesage)
-                print("")
-                print("==============================================")
-                print("Return an item")
-                print("==============================================")
-                
+                self.printHeader("return an item")
                 # Refactor (B): use selectItemType()
-                print("\nItem types:")
-                print("1. Digital Camera")
-                print("2. Laptop")
-                option = int(input("Enter option to select item type >"))
+                option = self.selectItemType();
 
                 # TO-DO: Write the code to RETURN a camcorder or chrome book
                 if option == OPTION_CAMERA:
