@@ -71,6 +71,21 @@ class Inventory:
             
         return output
 
+       def getNotAvailableCamera(self):
+        output = ""
+        output += "{:<10}{:<30}{:<10}{:<12}{:<10}\n".format("AssetTag", 
+                    "Description", "Available", "Due Date", "Zoom")
+        if len(self.cameraList) == 0:
+            output += "There is no camera to display."
+        else:
+            for i in self.cameraList:
+                if i.getIsAvailable() == "No":
+                    # Refactor (D): Extract duplicate code as __str__()
+                    # If __str__() already created, use it.
+                    output += str(i)
+            
+        return output
+
     def getAvailableLaptop(self):
         output = ""
         output += "{:<10}{:<30}{:<10}{:<12}{:<10}\n".format("AssetTag", 
